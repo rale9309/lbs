@@ -1,0 +1,45 @@
+#employee-card{
+    padding: 20px;
+    background-color: white;
+    color: grey;
+    width: 80%;
+    margin: 30px auto;
+    position: relative;
+}
+
+h2{
+    color: darkblue;
+    font-size: 40px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 10px;
+}
+
+h3{
+    font-size: 35px;
+    padding: 10px 0;
+}
+ul{
+    list-style-type: none;
+}
+
+li{
+    letter-spacing: 5px;
+}
+
+.more-info{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 1px solid red;
+    border-radius: 50%;
+    font-weight: 700;
+    background-color: white;
+    color: purple;
+    padding: 20px;
+}
+.more-info:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    background-color: red;
+    color: white;
+}
