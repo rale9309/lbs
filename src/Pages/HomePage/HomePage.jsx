@@ -6,7 +6,15 @@ import Modal from "../../Components/Modal/Modal";
 
 
 function HomePage (props) {
+        // state koji cuva podataka da li je modal otvoren ili zatvoren
         const [modalOpen, setModalOpen] = useState(false)
+        // stejt koji cuva podatak o slelktovanom employee
+        const [modalData, setModalData]= useState("")
+
+    const selectEmployee = (obj) => {
+        setModalData(obj)
+    }
+
 
         const toogleModal = () => {
             setModalOpen(!modalOpen)
@@ -15,9 +23,9 @@ function HomePage (props) {
 
     return ( 
         <div>
-            <Header></Header>
-            {props.developers.map(e => <EmployeeCard openModal= {toogleModal} employee={e}/>)}
-            {modalOpen && <Modal toogleModal={toogleModal}></Modal>}
+            <Header goToHiringPage = {props.togglePages}></Header>
+            {props.developers.map(e => <EmployeeCard selectEmployee={selectEmployee} openModal= {toogleModal} employee={e}/>)}
+            {modalOpen && <Modal data={modalData} toogleModal={toogleModal}></Modal>}
         </div>
      );
 }

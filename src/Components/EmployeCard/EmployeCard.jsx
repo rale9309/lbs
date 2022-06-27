@@ -10,8 +10,12 @@ function EmployeeCard (props) {
             <h3>Salary : {props.employee.salary}€</h3>
             <ul>
                 {props.employee.technology.map(e=> <li>{e}</li>)}
+                
             </ul>
-            <button className="more-info" onClick={props.openModal}>Info</button>
+            <button className="more-info" onClick={()=>{
+                props.openModal()
+                props.selectEmployee(props.employee)
+                }}>Info</button>
         </div>
      );
 }

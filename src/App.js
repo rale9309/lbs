@@ -6,24 +6,18 @@ import HiringPage from "./Pages/HiringPage/HiringPage";
 function App() {
 
   const[frontendDevelopers, setfrontendDevelopers] = useState([])
-  // const[backendDevelopers, setBackendDevelopers] = useState([])
-  // const[boardOfDierctors, setBoardOfDirectors] = useState([])
-  // const[managers, setManagers] = useState([])
-
+  const [onHomePage, setOnHomePage] = useState(true)
+  
 
 useEffect(()=> {
   fetchFrontend()
-  // fetchBackend()
-  // fetchBoardOfDirectors()
-  // fetchManagers()
-},[])
+},[onHomePage])
 
-// const fetchData = (endpoint, setMethod) =>  {
-//   fetch(`https://62b47b67da3017eabb0b8272.mockapi.io/${endpoint}`)
-//   .then(res=>res.json())
-//   .then(employees => setMethod(developers))
-// }
 
+
+const togglePages = () => {
+  setOnHomePage(!onHomePage)
+}
 
   const fetchFrontend = () => {
     fetch('https://62b47b67da3017eabb0b8272.mockapi.io/frontend')
@@ -31,31 +25,11 @@ useEffect(()=> {
     .then(developers => setfrontendDevelopers(developers))
   }
 
-
-  // const fetchBackend = () => {
-  //   fetch('https://62b47b67da3017eabb0b8272.mockapi.io/backend')
-  //   .then(res=>res.json())
-  //   .then(developers => setBackendDevelopers(developers))
-  // }
-
-  // const fetchBoardOfDirectors = () => {
-  //   fetch('https://62b47b67da3017eabb0b8272.mockapi.io/boardOfDirectors')
-  //   .then(res=>res.json())
-  //   .then(directors => setBoardOfDirectors(developers))
-  // }
-
-
-  // const fetchManagers = () => {
-  //   fetch('https://62b47b67da3017eabb0b8272.mockapi.io/managers')
-  //   .then(res=>res.json())
-  //   .then(managers => setManagers(developers))
-  // }
-
-
   return ( 
     <div className="App">
-      <HomePage developers={frontendDevelopers}></HomePage>
-      {/* <HiringPage></HiringPage> */}
+      {onHomePage && <HomePage togglePages = {togglePages} 
+      developers={frontendDevelopers}></HomePage>}
+      {!onHomePage && <HiringPage togglePages= {togglePages}></HiringPage> }
     </div>
    );
 }

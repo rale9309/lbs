@@ -5,6 +5,7 @@
     width: 80%;
     margin: 30px auto;
     position: relative;
+    border-radius: 30px;
 }
 
 h2{
@@ -30,7 +31,7 @@ li{
     position: absolute;
     top: 10px;
     right: 10px;
-    border: 1px solid red;
+    border: 1px solid  #134b5f;
     border-radius: 50%;
     font-weight: 700;
     background-color: white;
@@ -40,6 +41,6 @@ li{
 .more-info:hover{
     transform: scale(1.1);
     transition: 0.5s;
-    background-color: red;
+    background-color:  #134b5f;
     color: white;
 }
